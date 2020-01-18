@@ -5,7 +5,7 @@ using namespace std;
 void input(int arr[], int degree){
     int i;
     for(i = 0; i<=degree; i++){
-        cout << "Masukkan derajat polinom x^" << degree-i << " : ";
+        cout << "Masukkan koefisien suku x^" << degree-i << ": ";
         cin >> arr[degree-i];
     }
     return;
@@ -25,7 +25,7 @@ int main() {
     /* ini urg komen dulu ntar kalau udah betul hapus aja HAPUS
     for (i = 0; i <= n; i++) {
         cin >> polA[n-i];
-    } 
+    }
     cout << "Polinom anda adalah: \n";
     for (i = 0; i <= n; i++) {
         cout << polA[n-i] << "X^" << n-i << " ";
@@ -42,7 +42,7 @@ int main() {
         cin >> m;
         int poliB[m];
         input(poliB,m);
-        
+
         // ambil derajat tertinggi untuk derajat tertinggi pada array baru yang menyimpan hasil
         int max;
         if(n < m){
@@ -50,25 +50,25 @@ int main() {
         } else{
             max =n;
         }
-        
+
         // Penjumlahan array
-        cout << "Hasil penjumlahan kedua polinom tersebut adalah : "; 
+        cout << "Hasil penjumlahan kedua polinom tersebut adalah : ";
         for(i=0;i<=max; i++){
             if(i == 0){
-                cout << poliA[max-i] + poliB[max-i] << "x^" << max-i;
-            } else if( i == max && (poliA[max-i] + poliB[max-i]) > 0){
-                cout << " + " << poliA[max-i] + poliB[max-i];
-            } else if( i == max && (poliA[max-i] + poliB[max-i]) < 0){
-                cout << " " << poliA[max-i] + poliB[max-i]; 
-            } else if( (poliA[max-i] + poliB[max-i]) > 0){
-                cout << " + " << poliA[max-i] + poliB[max-i] << "x^" << max-i;
-            } else if((poliA[max-i] + poliB[max-i]) < 0){
-                cout << " " << poliA[max-i] + poliB[max-i] << "x^" << max-i;
-             } 
+                cout << polA[max-i] + poliB[max-i] << "x^" << max-i;
+            } else if( i == max && (polA[max-i] + poliB[max-i]) > 0){
+                cout << " + " << polA[max-i] + poliB[max-i];
+            } else if( i == max && (polA[max-i] + poliB[max-i]) < 0){
+                cout << " " << polA[max-i] + poliB[max-i];
+            } else if( (polA[max-i] + poliB[max-i]) > 0){
+                cout << " + " << polA[max-i] + poliB[max-i] << "x^" << max-i;
+            } else if((polA[max-i] + poliB[max-i]) < 0){
+                cout << " " << polA[max-i] + poliB[max-i] << "x^" << max-i;
+             }
         }
 
     }
-  
+
     else if (opr == 2) {
         int i, m;
         cout << "Masukkan derajat tertinggi dari polinomial ke-2: ";
@@ -81,7 +81,6 @@ int main() {
         for (i = 0; i <= m; i++) {
         cin >> polB[m-i];
         }
-
         cout << "Polinom ke- 2 anda adalah: \n";
         for (i = 0; i <= m; i++) {
             cout << polB[m-i] << "X^" << m-i << " ";
@@ -92,25 +91,53 @@ int main() {
             cout << polA[m-i] - polB[m-i] << "X^" << m-i << " ";
         }
         return 0;
-   
+
 
     }
 
     else if (opr == 3) {
-        //Masukin sini jul
+        cout << "Fitur belum tersedia.";
     }
 
     else if (opr == 4) {
         cout << "\nHasil turunan polinomnya adalah: \n";
         for (i = 0; i <= n; i++) {
-            if ((n-i) != 0 && (n-i-1) != -1) {
-                cout << polA[n-i]*(n-i) << "X^" << (n-i-1) << " ";
+            if (i == 0) {
+                if ((n-i-1) == 0) {
+                    cout << polA[n-i]*(n-i);
+                }
+                else if (((n-i) != 0 && (n-i-1) != -1)) {
+                    cout << polA[n-i]*(n-i) << "X^" << (n-i-1);
+                }
+                else if (((n-i) == 0)) {
+                    cout << polA[n-i]*(n-i) << " ";
+                }
+                else if ((n-i-1) == -1) {
+                    cout << " ";
+                }
             }
-            else if ((n-i) == 0) {
-                cout << polA[n-i] * (n-i) << " ";
-            }
-            else if ((n-i-1) == -1) {
-                cout << "";
+            else if (i != 0) {
+                if ((n-i-1) == 0 && (polA[n-i]*(n-i)) > 0) {
+                    cout << " + " << polA[n-i]*(n-i);
+                }
+                else if (((n-i-1) == 0) && (polA[n-i]*(n-i)) < 0) {
+                    cout << " " << polA[n-i]*(n-i);
+                }
+                else if (((n-i) != 0 && (n-i-1) != -1) && (polA[n-i]*(n-i)) > 0) {
+                    cout << " + " << polA[n-i]*(n-i) << "X^" << (n-i-1);
+                }
+                else if (((n-i) != 0 && (n-i-1) != -1) && (polA[n-i]*(n-i)) < 0) {
+                    cout << " " << polA[n-i]*(n-i) << "X^" << (n-i-1);
+                }
+                else if (((n-i) == 0) && (polA[n-i]*(n-i)) > 0) {
+                    cout << " + " << polA[n-i]*(n-i) << " ";
+                }
+                else if (((n-i) == 0) && (polA[n-i]*(n-i)) < 0) {
+                    cout << " " << polA[n-i]*(n-i) << " ";
+                }
+                else if ((n-i-1) == -1) {
+                    cout << " ";
+                }
             }
         }
     }
