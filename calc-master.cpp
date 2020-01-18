@@ -3,8 +3,7 @@ using namespace std;
 
 int main() {
 
-    int i, n;
-    string opr;
+    int i, n, opr;
 
     cout << "SELAMAT DATANG\nDi program ini anda bisa melakukan operasi penjumlahan, pengurangan, perkalian, serta penurunan dari polinom\n";
     cout << "Masukkan derajat tertinggi dari polinomial: ";
@@ -21,30 +20,38 @@ int main() {
         cout << polA[n-i] << "X^" << n-i << " ";
     }
 
-    cout << "\nSilakan pilih operasi yang akan anda lakukan (tambah/kurang/kali/turunan)\n";
-    cout << "Operasi yang dipilih: ";
+    cout << "\n\nSilakan pilih operasi yang akan anda lakukan\n";
+    cout << "1. Tambah    2. Kurang    3. Kali    4. Turunan\n";
+    cout << "Nomor operasi yang dipilih: ";
     cin >> opr;
-    
-    if (opr == "tambah") {
+
+    if (opr == 1) {
         //Masukin sini far
     }
-    
-    else if (opr == "kurang") {
+
+    else if (opr == 2) {
         //Masukin sini dro
     }
-    
-    else if (opr == "kali") {
+
+    else if (opr == 3) {
         //Masukin sini jul
     }
-    
-    else if (opr == "turunan") {
-        //
+
+    else if (opr == 4) {
+        cout << "\nPolinom hasilnya adalah: \n";
+        for (i = 0; i <= n; i++) {
+            if ((n-i) != 0 && (n-i-1) != -1) {
+                cout << polA[n-i]*(n-i) << "X^" << (n-i-1) << " ";
+            }
+            else if ((n-i) == 0) {
+                cout << polA[n-i] * (n-i) << " ";
+            }
+            else if ((n-i-1) == -1) {
+                cout << "";
+            }
+        }
     }
-    
-    for (i = 0; i <= n; i++) {
-        cout << polA[n-i]*(n-i) << "X^" << (n-i-1) << " ";
-    }
+
 
     return 0;
 }
-
