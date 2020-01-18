@@ -11,38 +11,6 @@ void input(int arr[], int degree){
     return;
 }
 
-// Fungsi Penjumlahan 2 polinom
-void add(int arrA[], int arrB[], int HighestDegree, int arrbaru[]){
-    int i;
-    for(i=0; i <= HighestDegree; i++){
-        if (arrA[i] == NULL){
-            arrA[i] = 0;
-        } else if(arrB[i] == NULL){
-            arrB[i] = 0;
-        }
-        arrbaru[i] = arrA[i] + arrB[i];
-    }
-    return;
-}
-
-// fungsi print polinomnya
-void printAddition(int arrbaru[], int DerajatMax){
-    int i;
-    cout << "Hasil penjumlahan kedua polinom tersebut adalah : ";
-     for(i =0; i<=DerajatMax; i++){
-        if(i == 0){
-            cout << arrbaru[i];
-        }
-        else if(arrbaru[i] > 0){
-            cout << " + " << arrbaru[i] << "x^" << i;
-        } else if(arrbaru[i] < 0){
-            cout << " " << arrbaru[i] << "x^" << i;
-        }
-    } 
-    return;
-}
-
-
 int main() {
 
     int i, n, opr, m;
@@ -52,15 +20,16 @@ int main() {
     cin >> n;
 
     int polA[n];
+    input(polA,n);
 
+    /* ini urg komen dulu ntar kalau udah betul hapus aja HAPUS
     for (i = 0; i <= n; i++) {
         cin >> polA[n-i];
-    }
-
+    } 
     cout << "Polinom anda adalah: \n";
     for (i = 0; i <= n; i++) {
         cout << polA[n-i] << "X^" << n-i << " ";
-    }
+    } */
 
     cout << "\n\nSilakan pilih operasi yang akan anda lakukan\n";
     cout << "1. Tambah    2. Kurang    3. Kali    4. Turunan\n";
@@ -83,9 +52,21 @@ int main() {
         }
         
         // Penjumlahan array
-        int poliC[max];
-        add(polA, poliB, max, poliC);
-        printAddition(poliC, max);
+        cout << "Hasil penjumlahan kedua polinom tersebut adalah : "; 
+        for(i=0;i<=max; i++){
+            if(i == 0){
+                cout << poliA[max-i] + poliB[max-i] << "x^" << max-i;
+            } else if( i == max && (poliA[max-i] + poliB[max-i]) > 0){
+                cout << " + " << poliA[max-i] + poliB[max-i];
+            } else if( i == max && (poliA[max-i] + poliB[max-i]) < 0){
+                cout << " " << poliA[max-i] + poliB[max-i]; 
+            } else if( (poliA[max-i] + poliB[max-i]) > 0){
+                cout << " + " << poliA[max-i] + poliB[max-i] << "x^" << max-i;
+            } else if((poliA[max-i] + poliB[max-i]) < 0){
+                cout << " " << poliA[max-i] + poliB[max-i] << "x^" << max-i;
+             } 
+        }
+
     }
   
     else if (opr == 2) {
@@ -93,8 +74,10 @@ int main() {
         cout << "Masukkan derajat tertinggi dari polinomial ke-2: ";
         cin >> m;
 
-        int polB[m+1];
+        int polB[m];
+        input(polB,m);
 
+        /* HAPUS NTAR
         for (i = 0; i <= m; i++) {
         cin >> polB[m-i];
         }
@@ -102,7 +85,7 @@ int main() {
         cout << "Polinom ke- 2 anda adalah: \n";
         for (i = 0; i <= m; i++) {
             cout << polB[m-i] << "X^" << m-i << " ";
-        }
+        } */
 
         cout << "Hasil pengurangan polinom pertama dan kedua adalah: \n";
         for (i = 0; i <= m; i++) {
@@ -118,7 +101,7 @@ int main() {
     }
 
     else if (opr == 4) {
-        cout << "\nPolinom hasilnya adalah: \n";
+        cout << "\nHasil turunan polinomnya adalah: \n";
         for (i = 0; i <= n; i++) {
             if ((n-i) != 0 && (n-i-1) != -1) {
                 cout << polA[n-i]*(n-i) << "X^" << (n-i-1) << " ";
