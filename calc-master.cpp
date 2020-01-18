@@ -1,15 +1,57 @@
 #include <iostream>
 using namespace std;
 
+// fungsi input array
+void input(int arr[], int degree){
+    int i;
+    for(i = 0; i<=degree; i++){
+        cout << "Masukkan derajat polinom x^" << degree-i << " : ";
+        cin >> arr[degree-i];
+    }
+    return;
+}
+
+// Fungsi Penjumlahan 2 polinom
+void add(int arrA[], int arrB[], int HighestDegree, int arrbaru[]){
+    int i;
+    for(i=0; i <= HighestDegree; i++){
+        if (arrA[i] == NULL){
+            arrA[i] = 0;
+        } else if(arrB[i] == NULL){
+            arrB[i] = 0;
+        }
+        arrbaru[i] = arrA[i] + arrB[i];
+    }
+    return;
+}
+
+// fungsi print polinomnya
+void printAddition(int arrbaru[], int DerajatMax){
+    int i;
+    cout << "Hasil penjumlahan kedua polinom tersebut adalah : ";
+     for(i =0; i<=DerajatMax; i++){
+        if(i == 0){
+            cout << arrbaru[i];
+        }
+        else if(arrbaru[i] > 0){
+            cout << " + " << arrbaru[i] << "x^" << i;
+        } else if(arrbaru[i] < 0){
+            cout << " " << arrbaru[i] << "x^" << i;
+        }
+    } 
+    return;
+}
+
+
 int main() {
 
-    int i, n, opr;
+    int i, n, opr, m;
 
     cout << "SELAMAT DATANG\nDi program ini anda bisa melakukan operasi penjumlahan, pengurangan, perkalian, serta penurunan dari polinom\n";
     cout << "Masukkan derajat tertinggi dari polinomial: ";
     cin >> n;
 
-    int polA[n+1];
+    int polA[n];
 
     for (i = 0; i <= n; i++) {
         cin >> polA[n-i];
@@ -27,6 +69,23 @@ int main() {
 
     if (opr == 1) {
         //Masukin sini far
+        cout << "Masukkan derajat polinom B : ";
+        cin >> m;
+        int poliB[m];
+        input(poliB,m);
+        
+        // ambil derajat tertinggi untuk derajat tertinggi pada array baru yang menyimpan hasil
+        int max;
+        if(n < m){
+            max = m;
+        } else{
+            max =n;
+        }
+        
+        // Penjumlahan array
+        int poliC[max];
+        add(polA, poliB, max, poliC);
+        printAddition(poliC, max);
     }
   
     else if (opr == 2) {
