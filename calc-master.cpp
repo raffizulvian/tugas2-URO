@@ -28,9 +28,30 @@ int main() {
     if (opr == 1) {
         //Masukin sini far
     }
-
+  
     else if (opr == 2) {
-        //Masukin sini dro
+        int i, m;
+        cout << "Masukkan derajat tertinggi dari polinomial ke-2: ";
+        cin >> m;
+
+        int polB[m+1];
+
+        for (i = 0; i <= m; i++) {
+        cin >> polB[m-i];
+        }
+
+        cout << "Polinom ke- 2 anda adalah: \n";
+        for (i = 0; i <= m; i++) {
+            cout << polB[m-i] << "X^" << m-i << " ";
+        }
+
+        cout << "Hasil pengurangan polinom pertama dan kedua adalah: \n";
+        for (i = 0; i <= m; i++) {
+            cout << polA[m-i] - polB[m-i] << "X^" << m-i << " ";
+        }
+        return 0;
+   
+
     }
 
     else if (opr == 3) {
