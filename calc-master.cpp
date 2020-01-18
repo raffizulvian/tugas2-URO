@@ -1,9 +1,52 @@
 #include <iostream>
 using namespace std;
 
+// fungsi input array
+void input(int arr[], int degree){
+    int i;
+    for(i = 0; i<=degree; i++){
+        cout << "Masukkan derajat polinom x^" << degree-i << " : ";
+        cin >> arr[degree-i];
+    }
+    return;
+}
+
+// Fungsi Penjumlahan 2 polinom
+void add(int arrA[], int arrB[], int HighestDegree, int arrbaru[]){
+    int i;
+    for(i=0; i <= HighestDegree; i++){
+        if (arrA[i] == NULL){
+            arrA[i] = 0;
+        } else if(arrB[i] == NULL){
+            arrB[i] = 0;
+        }
+        arrbaru[i] = arrA[i] + arrB[i];
+    }
+    return;
+}
+
+// fungsi print polinom
+void printAddition(int arrbaru[], int DerajatMax){
+    int i;
+    cout << "Hasil penjumlahan kedua polinom tersebut adalah : ";
+     for(i =0; i<=DerajatMax; i++){
+        if(i == 0){
+            cout << arrbaru[i];
+        }
+        else if(arrbaru[i] > 0){
+            cout << " + " << arrbaru[i] << "x^" << i;
+        } else if(arrbaru[i] < 0){
+            cout << " " << arrbaru[i] << "x^" << i;
+        }
+    } 
+    return;
+}
+
+
 int main() {
 
-    int i, n, opr;
+    int i, n;
+    string opr;
 
     cout << "SELAMAT DATANG\nDi program ini anda bisa melakukan operasi penjumlahan, pengurangan, perkalian, serta penurunan dari polinom\n";
     cout << "Masukkan derajat tertinggi dari polinomial: ";
@@ -20,38 +63,30 @@ int main() {
         cout << polA[n-i] << "X^" << n-i << " ";
     }
 
-    cout << "\n\nSilakan pilih operasi yang akan anda lakukan\n";
-    cout << "1. Tambah    2. Kurang    3. Kali    4. Turunan\n";
-    cout << "Nomor operasi yang dipilih: ";
+    cout << "\nSilakan pilih operasi yang akan anda lakukan (tambah/kurang/kali/turunan)\n";
+    cout << "Operasi yang dipilih: ";
     cin >> opr;
-
-    if (opr == 1) {
+    
+    if (opr == "tambah") {
         //Masukin sini far
     }
-
-    else if (opr == 2) {
+    
+    else if (opr == "kurang") {
         //Masukin sini dro
     }
-
-    else if (opr == 3) {
+    
+    else if (opr == "kali") {
         //Masukin sini jul
     }
-
-    else if (opr == 4) {
-        cout << "\nPolinom hasilnya adalah: \n";
-        for (i = 0; i <= n; i++) {
-            if ((n-i) != 0 && (n-i-1) != -1) {
-                cout << polA[n-i]*(n-i) << "X^" << (n-i-1) << " ";
-            }
-            else if ((n-i) == 0) {
-                cout << polA[n-i] * (n-i) << " ";
-            }
-            else if ((n-i-1) == -1) {
-                cout << "";
-            }
-        }
+    
+    else if (opr == "turunan") {
+        //
     }
-
+    
+    for (i = 0; i <= n; i++) {
+        cout << polA[n-i]*(n-i) << "X^" << (n-i-1) << " ";
+    }
 
     return 0;
 }
+
