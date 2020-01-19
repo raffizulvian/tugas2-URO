@@ -22,15 +22,6 @@ int main() {
     int polA[n];
     input(polA,n);
 
-    /* ini urg komen dulu ntar kalau udah betul hapus aja HAPUS
-    for (i = 0; i <= n; i++) {
-        cin >> polA[n-i];
-    }
-    cout << "Polinom anda adalah: \n";
-    for (i = 0; i <= n; i++) {
-        cout << polA[n-i] << "X^" << n-i << " ";
-    } */
-
     cout << "\n\nSilakan pilih operasi yang akan anda lakukan\n";
     cout << "1. Tambah    2. Kurang    3. Kali    4. Turunan\n";
     cout << "Nomor operasi yang dipilih: ";
@@ -76,15 +67,6 @@ int main() {
 
         int polB[m];
         input(polB,m);
-
-        /* HAPUS NTAR
-        for (i = 0; i <= m; i++) {
-        cin >> polB[m-i];
-        }
-        cout << "Polinom ke- 2 anda adalah: \n";
-        for (i = 0; i <= m; i++) {
-            cout << polB[m-i] << "X^" << m-i << " ";
-        } */
 
         cout << "Hasil pengurangan polinom pertama dan kedua adalah: \n";
         for (i = 0; i <= m; i++) {
