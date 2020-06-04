@@ -1,6 +1,4 @@
 # tugas2-URO
+A polynomial calculator that can perform some polynomial operations like addition, subtraction, division, multiplication, and differentiation.
 
-Anggota:
-Raffi Zulvian Muzhaffar (16519138), 
-M Ichsandro D Noor (16519402), 
-M Jafar Gundari (16519070)
+This program was built to fulfill one of Unit Robotika ITB tasks. I made this program with Muhammad Jafar Gundari and M. Ichsandro D. Noor.
